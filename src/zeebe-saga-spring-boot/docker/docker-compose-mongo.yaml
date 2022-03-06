@@ -16,8 +16,8 @@ services:
     volumes:
       - ./files/mongo:/docker-entrypoint-initdb.d:ro
     command: mongod --bind_ip_all --replSet rs0
-    networks:
-      - zeebe_network
+ #   networks:
+#      - zeebe_network
 
   mongo-setup:
     container_name: mongo-setup
@@ -30,8 +30,8 @@ services:
     volumes:
       - ./files/mongo-setup:/scripts
     entrypoint: [ "/scripts/setup-single.sh" ]
-    networks:
-      - zeebe_network
+  #  networks:
+   #   - zeebe_network
     depends_on:
       - mongo
 
